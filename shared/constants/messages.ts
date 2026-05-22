@@ -19,6 +19,8 @@ export const MESSAGES = {
       UPDATED: "Time atualizado com sucesso",
       DELETED: "Time removido com sucesso",
       ALREADY_EXISTS: "Time já existe",
+      FOUND: "Time encontrado com sucesso",
+      LISTED: "Times listados com sucesso",
    },
 
    PLAYER: {
@@ -27,6 +29,8 @@ export const MESSAGES = {
       UPDATED: "Jogador atualizado com sucesso",
       DELETED: "Jogador removido com sucesso",
       ALREADY_EXISTS: "Jogador já existe",
+      FOUND: "Jogador encontrado com sucesso",
+      LISTED: "Jogadores listados com sucesso",
    },
 
    USER: {
@@ -34,6 +38,8 @@ export const MESSAGES = {
       CREATED: "Usuário criado com sucesso",
       UPDATED: "Usuário atualizado com sucesso",
       DELETED: "Usuário removido com sucesso",
+      FOUND: "Usuário encontrado com sucesso",
+      LISTED: "Usuários listados com sucesso",
    },
 
    COMMON: {

@@ -8,7 +8,13 @@
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
     "module": "nodenext",
+    "moduleResolution": "nodenext",
     "target": "esnext",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["*"]
+    },
+    "ignoreDeprecations": "6.0",
     "types": [],
     // For nodejs:
     // "lib": ["esnext"],

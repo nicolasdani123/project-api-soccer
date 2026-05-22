@@ -1,4 +1,4 @@
-import prisma from "./src/core/database/prisma/client";
+import prisma from "./src/core/database/prisma/client.js";
 
 async function main() {
   const result = await prisma.$queryRaw`SELECT 1`;

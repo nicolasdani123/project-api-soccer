@@ -1,32 +1,32 @@
 import z from "zod";
 
-const id = z.string().uuid();
+const idSchema = z.string().uuid();
 
-const name = z.string().min(1).max(50).trim();
+const nameSchema = z.string().min(1).max(50).trim();
 
-const shortName = z.string().min(1).max(4)
+const shortNameSchema = z.string().min(1).max(4);
 
-const country = z.string().min(1).max(20).trim();
+const countrySchema = z.string().min(1).max(20).trim();
 
-const city = z.string().min(1).max(20)
+const citySchema = z.string().min(1).max(20);
 
-const league = z.string().min(1).max(20).trim();
+const leagueSchema = z.string().min(1).max(20).trim();
 
-const stadium = z.string().min(1).max(20).nullable()
+const stadiumSchema = z.string().min(1).max(20).nullable();
 
-const foundedYear = z
+const foundedYearSchema = z
   .number()
   .int()
   .min(1800)
-  .max(new Date().getFullYear())
+  .max(new Date().getFullYear());
  
 
-const logoUrl = z.string().url().nullable()
+const logoUrlSchema = z.string().url().nullable();
 
-const isActive = z.boolean()
+const isActiveSchema = z.boolean();
 
-const createdAt = z.date();
+const createdAtSchema = z.date();
 
-const updatedAt = z.date()
+const updatedAtSchema = z.date();
 
-export {id,name,shortName,country,city,league,stadium,foundedYear,logoUrl,isActive,createdAt,updatedAt}
+export {idSchema,nameSchema,shortNameSchema,countrySchema,citySchema,leagueSchema,stadiumSchema,foundedYearSchema,logoUrlSchema,isActiveSchema,createdAtSchema,updatedAtSchema}

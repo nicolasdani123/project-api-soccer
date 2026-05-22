@@ -2,7 +2,7 @@ import { Router } from "express";
 import playerRespository from "../repository/player-repository.js";
 import PlayerService from "../service/player-service.js";
 import PlayerController from "../controller/player-controller.js";
-import asyncHandler from "../../../../middlewares/async-handler.js";
+import asyncHandler from "@/middlewares/async-handler.js";
 
 
 

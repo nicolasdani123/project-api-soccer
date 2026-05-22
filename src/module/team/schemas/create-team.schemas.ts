@@ -1,14 +1,14 @@
 import z from "zod";
-import { name,shortName,country,city,league,stadium,foundedYear,logoUrl } from "./fields-team.schemas.js";
+import { nameSchema, shortNameSchema, countrySchema, citySchema, leagueSchema, stadiumSchema, foundedYearSchema, logoUrlSchema } from "./fields-team.schemas.js";
 const createTeamSchema = z.object({
-  name,
-  shortName,
-  country,
-  city,
-  league,
-  stadium,
-  foundedYear,
-  logoUrl
+  name: nameSchema,
+  shortName: shortNameSchema,
+  country: countrySchema,
+  city: citySchema,
+  league: leagueSchema,
+  stadium: stadiumSchema,
+  foundedYear: foundedYearSchema,
+  logoUrl: logoUrlSchema
 });
 
 

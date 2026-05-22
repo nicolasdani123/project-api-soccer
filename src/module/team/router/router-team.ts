@@ -1,13 +1,13 @@
 import { Router } from "express";
-import teamController from "../controller/team-controller.js";
+import TeamController from "../controller/team-controller.js";
 import TeamRepository from "../repository/team-repository.js";
 import teamService from "../service/team-service.js";
-import asyncHandler from "../../../../middlewares/async-handler.js";
+import asyncHandler from "@/middlewares/async-handler.js";
 
 const teamsRouter = Router()
 const repository = new TeamRepository()
 const service = new teamService(repository)
-const controller = new teamController(service)
+const controller = new TeamController(service)
 
 teamsRouter.get("/",asyncHandler(controller.findAll.bind(controller)))
 teamsRouter.get("/:id",asyncHandler(controller.findById.bind(controller)))

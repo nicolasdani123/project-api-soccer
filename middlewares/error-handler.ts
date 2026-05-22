@@ -1,7 +1,7 @@
-import { ErrorRequestHandler, Response } from "express";
+import { type ErrorRequestHandler, type Response } from "express";
 import { ZodError } from "zod";
 import { Prisma } from "@prisma/client";
-import AppError from "../error/appError.js";
+import AppError from "../shared/error/appError.js";
 
 type ErrorResponse = {
   success?: boolean;
@@ -33,10 +33,7 @@ const handleZodError = (error: ZodError, res: Response) => {
   );
 };
 
-const handlePrismaError = (
-  error: Prisma.PrismaClientKnownRequestError,
-  res: Response,
-): Response | null => {
+const handlePrismaError = (error: Prisma.PrismaClientKnownRequestError,res: Response,): Response | null => {
   const map: Record<string, { status: number; message: string }> = {
     P2002: { status: 409, message: "Dado já existente" },
     P2003: { status: 400, message: "Violação de integridade referencial" },

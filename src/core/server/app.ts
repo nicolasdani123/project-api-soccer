@@ -1,7 +1,7 @@
 import express from "express"
 import cors from "cors"
 import morgan from "morgan"
-import router from "../../../router/global-router.js"
+import router from "@/router/global-router.js"
 
 //inicio o servidor
 const app = express()

@@ -1,6 +1,6 @@
 import type { Prisma } from "@prisma/client";
-import { MESSAGES } from "../../../../shared/constants/messages.js";
-import AppError from "../../../../shared/error/appError.js";
+import { MESSAGES } from "@/shared/constants/messages.js";
+import AppError from "@/shared/error/appError.js";
 import type {
   CreatePlayerDTO,
   idDTO,

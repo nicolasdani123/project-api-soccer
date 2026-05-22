@@ -1,0 +1,133 @@
+Descrição detalhada do projeto
+
+Visão geral
+Este é um backend Node.js em TypeScript para uma API de futebol/soccer. O projeto está organizado em camadas claras: controller, service, repository e schemas, usando Express para roteamento, Prisma para acesso ao banco de dados e Zod para validação de entrada.
+
+Estrutura principal
+- src/core/server/app.ts
+  - Configura o servidor Express
+  - Ativa cors, express.json(), morgan
+  - Encaixa o router global
+
+- router/global-router.ts
+  - Monta as rotas principais:
+    - /player
+    - /teams
+    - /user
+
+Módulos
+Player
+- src/module/player/controller/player-controller.ts
+  - Recebe requisições
+  - Valida id, payloads de criação/atualização com Zod
+  - Chama PlayerService
+  - Retorna resposta padronizada
+
+- src/module/player/service/player-service.ts
+  - Contém lógica de negócio
+  - Faz validações de existência
+  - Converte erros da API de forma controlada
+  - Usa PlayerRepository para acesso a dados
+  - Retorna objetos validados por player-response-schema.ts
+
+- src/module/player/repository/player-repository.ts
+  - Comunica com o banco via Prisma
+
+- src/module/player/schemas/*
+  - player-create-schema.ts
+  - player-update-schema.ts
+  - player-fields-schema.ts
+  - player-response-schema.ts
+
+Team
+- src/module/team/controller/team-controller.ts
+- src/module/team/service/team-service.ts
+- src/module/team/repository/team-repository.ts
+- src/module/team/schemas/*
+
+User
+- src/module/user/controller/user-controller.ts
+- src/module/user/service/user-services.ts
+- src/module/user/repository/user-repository.ts
+- src/module/user/schemas/*
+
+Tratamento de erros e respostas
+- middlewares/error-handler.ts
+  - Middleware global de erro
+  - Oferece envelope JSON padrão para:
+    - ZodError
+    - Prisma.PrismaClientKnownRequestError
+    - AppError
+    - Erro não tratado
+
+- shared/utils/response.ts
+  - buildSuccessResponse()
+  - Envolve respostas de sucesso com:
+    - success
+    - message
+    - code
+    - timestamp
+    - data
+    - errors
+
+- shared/constants/messages.ts
+  - Mensagens centralizadas de domínio:
+    - AUTH
+    - VALIDATION
+    - TEAM
+    - PLAYER
+    - USER
+    - COMMON
+
+Convenções e padrões
+- controller = entrada HTTP + validação + resposta
+- service = lógica de domínio + regras + validação adicional
+- repository = persistência / Prisma
+- schemas = validação de DTOs via Zod
+- shared/constants/messages.ts = texto de mensagens reutilizáveis
+- shared/utils/response.ts = envelope padrão para respostas de sucesso
+
+Build e runtime
+- package.json
+  - Usa type: "module"
+  - Scripts:
+    - dev
+    - backend
+    - test
+  - Dependências principais:
+    - express
+    - prisma
+    - zod
+    - tsx
+    - bcrypt
+    - dotenv
+
+- tsconfig.json
+  - module: nodenext
+  - moduleResolution: nodenext
+  - Alias @/* configurado
+  - strict: true
+  - Compilação validada com npx tsc --noEmit
+
+Testes
+- Configuração inicial com vitest
+- vitest.config.ts usando alias @
+- Testes criados em:
+  - tests/unit/response.test.ts
+  - tests/integration/health.test.ts
+
+Pontos importantes para outra IA
+- Projeto é backend estruturado e modular
+- Ele usa Express como framework HTTP
+- Prisma é a camada ORM para banco de dados
+- Zod garante segurança de tipos em runtime
+- Respostas seguem envelope consistente tanto em sucesso quanto em erro
+- Existência de alias @ para reduzir importações relativas longas
+- Projeto atualiza nomes de classe para consistência (TeamController, UserController, PlayerController)
+
+O que a IA deve saber sobre este projeto
+- É um serviço REST / API
+- Cada rota chama um controller que delega para service
+- O service usa repository para acessar banco
+- Erros são tratados em um middleware centralizado
+- Há uma camada de mensageria para respostas padrão

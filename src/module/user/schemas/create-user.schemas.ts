@@ -1,10 +1,11 @@
 import z from "zod";
-import { name,userName,email, password } from "./fields-user-schemas.js";
-const createUserSchemas = z.object({
-    name,
-    userName,
-    email,
-    password
-})
+import { nameSchema, userNameSchema, emailSchema, passwordSchema } from "./fields-user-schemas.js";
 
-export default createUserSchemas
+const createUserSchemas = z.object({
+    name: nameSchema,
+    userName: userNameSchema,
+    email: emailSchema,
+    password: passwordSchema,
+});
+
+export default createUserSchemas;
