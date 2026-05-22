@@ -1,0 +1,35 @@
+src/
+├── core/
+│   ├── env/
+│   ├── config/
+│   ├── database/
+│   │   ├── migrations/
+│   │   └── models/
+│   └── server/
+│
+├── modules/
+│   ├── auth/
+│   │   ├── controllers/
+│   │   ├── services/
+│   │   ├── repositories/
+│   │   ├── routes/
+│   │   ├── schemas/
+│   │   └── dtos/
+│   └── users/
+│       ├── controllers/
+│       ├── services/
+│       ├── repositories/
+│       ├── routes/
+│       ├── schemas/
+│       └── dtos/
+│
+├── shared/
+│   ├── errors/
+│   ├── providers/
+│   ├── utils/
+│   └── types/
+│
+├── middlewares/
+├── routes/
+├── tests/
+└── server.ts

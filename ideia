@@ -1,0 +1,28 @@
+Nível 1 (base)
+CRUD de jogadores e times
+simulação simples de jogo
+Nível 2 (forte junior)
+engine de eventos
+liga com tabela
+estatísticas
+Nível 3 (pleno iniciante)
+mercado de transferências
+sistema de temporadas
+cache + performance
+Nível 4 (diferencial absurdo)
+simulação baseada em ML/probabilidade avançada
+ranking global de times
+API pública documentada (Swagger bonito)
+
+| Valor | Posição          |
+| ----- | ---------------- |
+| GK    | goleiro          |
+| CB    | zagueiro         |
+| LB    | lateral esquerdo |
+| RB    | lateral direito  |
+| CDM   | volante          |
+| CM    | meio campo       |
+| CAM   | meia ofensivo    |
+| LW    | ponta esquerda   |
+| RW    | ponta direita    |
+| ST    | atacante         |
